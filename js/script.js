@@ -6,8 +6,6 @@ el: '#root',
    movies: [],
    search: "",
 
-
-
     },
    mounted: function() {
 
@@ -26,10 +24,8 @@ el: '#root',
        .then( (response) => {
          this.movies = response.data.results;
          this.search = "";
-
        });
-     }
-
+     },
 
    }
 

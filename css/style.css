@@ -28,10 +28,9 @@ header {
   background-color: #000;
   border-radius: 20px;
 }
-.title-app {
-  color: red;
-  font-size: 30px;
-  padding: 10px;
+.title-app img {
+  padding: 20px;
+  height: 90px;
 }
 .btn{
   border: 3px solid red;
