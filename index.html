@@ -28,11 +28,26 @@
           <h1>Boolflix</h1>
         </div>
         <div class="search-films">
-          <input type="text" name="" value="">
-          <button type="button" name="button">Search</button>
+          <input type="text" name="" value="" v-model="search" @keydown.13="searchFromApi">
+          <button type="button" name="button" @click="searchFromApi">Search</button>
+        </div>
+      </header>
+
+      <div class="container">
+       <div class="film-card" v-for="movie in movies">
+         <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="film-cover">
+       <div class="info-film">
+         <h3 class="title">Titolo: {{ movie.title }}</h3>
+         <h4>Titolo Originale: {{ movie.original_title }}</h4>
+         <span>Lingua: {{ movie.original_language }}</span>
+         <span>voto:</span>
+       </div>
+
         </div>
 
-      </header>
+      </div>
+
+
     </div>
 
 

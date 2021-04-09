@@ -19,3 +19,40 @@ header {
   color: red;
   font-size: 30px;
 }
+.container {
+  max-width: 1020px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+}
+.film-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-basis: 25%;
+  margin: 10px;
+  height: 100%;
+  background-color: #C2BCB9;
+}
+.film-cover {
+  max-width: 370px;
+  max-height: 300px;
+}
+.info-film {
+  display: none;
+  color: #fff;
+  height: 300px;
+  margin: auto;
+  font-size: 12px;
+  background-color: grey;
+}
+.film-card:hover .film-cover {
+ display: none;
+}
+
+.film-card:hover .info-film {
+ display: block;
+}
