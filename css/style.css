@@ -3,22 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #574643;
+}
 #root {
   max-width: 1020px;
   margin: 0 auto;
   font-family: 'Source Sans Pro', sans-serif;
 }
+/* Stile Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  background-color: black;
+  background-color: #000;
+  border-radius: 20px;
 }
 .title-app {
   color: red;
   font-size: 30px;
+  padding: 10px;
 }
+/* Stile struttura */
 .container {
   max-width: 1020px;
   margin: auto;
@@ -26,6 +33,7 @@ header {
   flex-wrap: wrap;
  justify-content: space-between;
 }
+/* Stile Film Card */
 .film-card {
   display: flex;
   justify-content: center;
@@ -35,7 +43,8 @@ header {
   flex-basis: 25%;
   margin: 10px;
   height: 100%;
-  background-color: #C2BCB9;
+  background-color: #000;
+  border-radius: 15px;
 }
 .film-cover {
   max-width: 370px;
@@ -45,9 +54,17 @@ header {
   display: none;
   color: #fff;
   height: 300px;
+  width: 100%;
   margin: auto;
   font-size: 12px;
-  background-color: grey;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(150,0,16,1) 80%);
+  padding: 20px;
+  border-radius: 15px;
+}
+.title {
+  font-weight: bold;
+  padding: 10px;
 }
 .film-card:hover .film-cover {
  display: none;
