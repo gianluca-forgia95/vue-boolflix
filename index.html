@@ -23,6 +23,7 @@
   <body>
 
     <div id="root">
+      <!-- header section -->
       <header>
         <div class="title-app">
           <img src="img/boolflix-lg.png" alt="Logo">
@@ -32,7 +33,9 @@
           <button class="btn" type="button" name="button" @click="searchFromApi">Search</button>
         </div>
       </header>
+    <!-- header section -->
      <main>
+    <!-- container movies -->
        <div class="container">
         <div class="film-card" v-for="movie in movies">
           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="film-cover">
@@ -47,6 +50,7 @@
          </div>
 
        </div>
+    <!-- /container movies -->
 
      </main>
 

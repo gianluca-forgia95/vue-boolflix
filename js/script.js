@@ -24,6 +24,9 @@ el: '#root',
        .then( (response) => {
          this.movies = response.data.results;
          this.search = "";
+         for (var i = 0; i < this.movies.length; i++) {
+         console.log(this.movies[i]);
+         }
        });
      },
 
