@@ -25,7 +25,7 @@ el: '#root',
          this.movies = response.data.results;
          this.search = "";
          for (var i = 0; i < this.movies.length; i++) {
-         console.log(this.movies[i]);
+            this.movies[i].vote_average = Math.ceil(this.movies[i].vote_average / 2)
          }
        });
      },
