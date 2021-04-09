@@ -3,3 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+#root {
+  max-width: 1020px;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: black;
+}
+.title-app {
+  color: red;
+  font-size: 30px;
+}
