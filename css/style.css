@@ -5,7 +5,7 @@
 }
 /* Stile struttura */
 body {
-  background-color: #523D3A;
+  background-color: #282822;
 }
 #root {
  max-width: 1020px;
@@ -17,7 +17,6 @@ body {
  display: flex;
  width: 1020px;
  margin: auto;
- margin-top: 30px;
  overflow-x: auto;
 }
 .container::-webkit-scrollbar {
@@ -28,6 +27,15 @@ body {
 .container::-webkit-scrollbar-thumb {
  background-color: red;
  border-radius: 4px;
+}
+/* Mix */
+.title-section {
+  font-size: 40px;
+  color: red;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 20px;
+  padding: 15px;
 }
 
 /* Stile Header */
@@ -65,9 +73,10 @@ header {
  height: 30px;
  padding: 5px;
  border-radius: 8px;
- background: #523D3A;
- color: #000;
- border: 1px solid #000;
+ background: none;
+ color: red;
+ border: 2px solid red;
+ font-weight: bold;
 }
 .input-search:focus , .btn:focus {
  outline: none;

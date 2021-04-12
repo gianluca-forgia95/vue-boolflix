@@ -2,6 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- /Responsive -->
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
@@ -18,7 +22,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- /CSS -->
-    <title>Boolfix</title>
+    <title>Boolflix</title>
   </head>
   <body>
 
@@ -29,13 +33,14 @@
         <img src="img/boolflix-lg.png" alt="Logo">
       </div>
       <div class="search-films">
-        <input class="input-search" type="text" placeholder="search movie..." value="" v-model="search" @keydown.13="searchFromApi">
+        <input class="input-search" type="text" placeholder="search movie or tv-series..." value="" v-model="search" @keydown.13="searchFromApi">
         <button class="btn" type="button" name="button" @click="searchFromApi">Search</button>
       </div>
    </header>
     <!-- header section -->
    <main>
     <!-- container movies -->
+    <h2 class="title-section" v-if="movies.length > 0">Movies</h2>
       <div v-dragscroll class="container">
         <div class="film-card" v-for="movie in movies" v-if="movie.poster_path !== null">
           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="film-cover">
@@ -54,6 +59,26 @@
       </div>
      </div>
     <!-- /container movies -->
+    <!-- container series -->
+    <h2 class="title-section" v-if="series.length > 0">Tv Series</h2>
+      <div v-dragscroll class="container">
+        <div class="film-card" v-for="serie in series" v-if="serie.poster_path !== null">
+          <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="" class="film-cover">
+        <div class="info-film">
+          <h3 class="title">Titolo: {{ serie.name }}</h3>
+          <h4>Titolo Originale: {{ serie.original_name }}</h4>
+          <span class="language">Lingua Originale:
+          <img :src="'flags/' + serie.original_language + '.png'">
+          </span>
+          <span class="rating"> voto:
+             <i v-for="index in serie.vote_average" class="star fas fa-star"></i>
+             <i v-for="index in (5 - serie.vote_average)" class="star far fa-star"></i>
+          </span>
+          <p class="overview">{{ serie.overview }}</p>
+        </div>
+      </div>
+     </div>
+    <!-- /container series -->
    </main>
 
   </div>
