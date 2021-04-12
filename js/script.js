@@ -9,7 +9,6 @@ el: '#root',
     },
    mounted: function() {
 
-
    },
 
    methods: {
@@ -28,8 +27,13 @@ el: '#root',
             this.movies[i].vote_average = Math.ceil(this.movies[i].vote_average / 2)
          }
        });
+
+
      },
 
    }
+
+
+
 
 });

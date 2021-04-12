@@ -3,21 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Stile struttura */
 body {
-  background-color: #574643;
-  scrollbar-width: thin;
-  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  background-color: #523D3A;
 }
 #root {
-  max-width: 1020px;
-  margin: 0 auto;
-  font-family: 'Source Sans Pro', sans-serif;
+ max-width: 1020px;
+ margin: 0 auto;
+ font-family: 'PT Sans Caption', sans-serif;
 }
-html {
-  --scrollbarBG: #CFD8DC;
-  --thumbBG: #90A4AE;
+.container {
+ margin: auto;
+ display: flex;
+ width: 1020px;
+ margin: auto;
+ margin-top: 30px;
+ overflow-x: auto;
 }
-
+.container::-webkit-scrollbar {
+ width: 11px;
+ background-color: #000;
+ border-radius: 4px;
+}
+.container::-webkit-scrollbar-thumb {
+ background-color: red;
+ border-radius: 4px;
+}
 
 /* Stile Header */
 header {
@@ -36,87 +47,93 @@ header {
   padding: 20px;
 }
 .btn{
-  border: 3px solid red;
-  background: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  transition: 0.8s;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  color: red;
-  font-weight: bold;
-  cursor: pointer;
+ border: 3px solid red;
+ background: none;
+ padding: 10px 20px;
+ font-size: 18px;
+ border-radius: 10px;
+ color: red;
+ font-weight: bold;
+ cursor: pointer;
+ transition: transform 0.8s;
+}
+.btn:hover {
+ transform: scale(0.7);
 }
 .input-search {
-  margin-right: 8px;
-  height: 30px;
-  border-radius: 8px;
-  background: red;
-  color: #000;
-  border: 1px solid #000;
+ margin-right: 8px;
+ height: 30px;
+ padding: 5px;
+ border-radius: 8px;
+ background: #523D3A;
+ color: #000;
+ border: 1px solid #000;
 }
 .input-search:focus , .btn:focus {
-  outline: none;
+ outline: none;
 }
-/* Stile struttura */
-.container {
-  max-width: 1020px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
- justify-content: space-between;
-}
+
 /* Stile Film Card */
 .film-card {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex-basis: 25%;
-  margin: 10px;
-  height: 100%;
-  background-color: #000;
-  border-radius: 15px;
-  cursor: pointer;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ min-width: 250px;
+ max-width: 250px;
+ margin: 10px;
+ height: 370px;
+ background-color: #000;
+ border-radius: 15px;
+ cursor: pointer;
 }
 .film-cover {
-  max-width: 370px;
-  max-height: 300px;
+ width: 100%;
+ height: 100%;
+ border-radius: 15px;
 }
 .info-film {
-  display: none;
-  color: #fff;
-  height: 300px;
-  width: 100%;
-  margin: auto;
-  font-size: 12px;
-  background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(150,0,16,1) 80%);
-  padding: 20px;
-  border-radius: 15px;
+ display: none;
+ color: #fff;
+ width: 100%;
+ height: 100%;
+ margin: auto;
+ font-size: 12px;
+ background: rgb(0,0,0);
+ background: linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(150,0,16,1) 80%);
+ padding: 10px;
+ border-radius: 15px;
 }
 .title {
-  font-weight: bold;
-  padding: 10px;
+ font-weight: bold;
+ padding: 10px;
 }
 .film-card:hover .film-cover {
  display: none;
 }
-
 .film-card:hover .info-film {
  display: block;
 }
+.star {
+ color: #FFD700;
+}
 .language {
-  display: block;
-  padding: 5px;
+ display: block;
+ padding: 5px;
+}
+.language img {
+  max-width: 16px;
+  vertical-align: middle;
 }
 .overview {
-  height: 100px;
-  overflow: auto;
-  padding: 10px;
+ height: 100px;
+ overflow: auto;
+ padding: 10px;
+ max-width: 200px;
+ margin: auto;
+ margin-top: 9px;
 }
 .overview::-webkit-scrollbar {
-  width: 11px;
+ width: 11px;
 }
