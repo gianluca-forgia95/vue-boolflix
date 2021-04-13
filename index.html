@@ -42,9 +42,10 @@
     <!-- container movies -->
     <h2 class="title-section" v-if="movies.length > 0">Movies</h2>
       <div v-dragscroll class="container">
-        <div class="film-card" v-for="movie in movies" v-if="movie.poster_path !== null">
-          <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="film-cover">
-        <div class="info-film">
+        <div class="card" v-for="movie in movies" v-if="movie.poster_path !== null">
+          <div class="card-inner">
+           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="cover">
+         <div class="info">
           <h3 class="title">Titolo: {{ movie.title }}</h3>
           <h4>Titolo Originale: {{ movie.original_title }}</h4>
           <span class="language">Lingua Originale
@@ -57,10 +58,12 @@
           <div class="release-date">
             <span>Release: {{ movie.release_date }}</span>
           </div>
+          <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
           <div class="overview">
-              <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
               <p>{{ movie.overview }}</p>
           </div>
+        </div>
+
         </div>
       </div>
      </div>
@@ -68,9 +71,10 @@
     <!-- container series -->
     <h2 class="title-section" v-if="series.length > 0">Tv Series</h2>
       <div v-dragscroll class="container">
-        <div class="film-card" v-for="serie in series" v-if="serie.poster_path !== null">
-          <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="" class="film-cover">
-        <div class="info-film">
+        <div class="card" v-for="serie in series" v-if="serie.poster_path !== null">
+          <div class="card-inner">
+           <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="" class="cover">
+        <div class="info">
           <h3 class="title">Titolo: {{ serie.name }}</h3>
           <h4>Titolo Originale: {{ serie.original_name }}</h4>
           <span class="language">Lingua Originale:
@@ -83,11 +87,12 @@
           <div class="release-date">
             <span>First Air Date: {{ serie.first_air_date }}</span>
           </div>
+          <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
           <div class="overview">
-            <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
               <p>{{ serie.overview }}</p>
           </div>
         </div>
+       </div>
       </div>
      </div>
     <!-- /container series -->
