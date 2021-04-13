@@ -6,7 +6,6 @@ el: '#root',
  data: {
    movies: [],
    series: [],
-   showPreview: false,
    search: "",
    apiKey: 'febf9a4fc7b46ba8b5e4681cf81209ce',
    urlSearch: 'https://api.themoviedb.org/3/search/',

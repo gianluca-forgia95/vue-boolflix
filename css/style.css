@@ -5,7 +5,7 @@
 }
 /* Stile struttura */
 body {
-  background-color: #282822;
+  background-color: #180E0E;
 }
 #root {
  max-width: 1020px;
@@ -33,6 +33,7 @@ font-family: 'Recursive', sans-serif;
 main {
   padding-bottom: 100px;
 }
+/* stile iniziale */
 .start {
   display: flex;
   flex-direction: column;
@@ -43,6 +44,12 @@ main {
   box-shadow:  0 0 20px red;
   border-radius: 20px;
 
+}
+.title-base {
+  text-align: center;
+  color: #F12727;
+  padding: 50px 0;
+  text-shadow: 5px 5px 5px #000;
 }
 /* Mix */
 .title-section {
@@ -55,13 +62,6 @@ main {
  -webkit-text-stroke-width: 2px;
  -webkit-text-stroke-color: #000;
 }
-.title-base {
-  text-align: center;
-  color: #F12727;
-  padding: 50px 0;
-  text-shadow: 5px 5px 5px #000;
-}
-
 /* Stile Header */
 header {
   display: flex;
