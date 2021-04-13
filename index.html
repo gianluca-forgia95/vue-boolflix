@@ -39,6 +39,10 @@
    </header>
     <!-- header section -->
    <main>
+     <div class="start" v-if="movies.length == 0 && series.length == 0">
+       <h1 class="title-base">Benvenuto su Boolflix, inizia cercando Film o SerieTv</h1>
+       <img  src="img/netflix-background.jpg" alt="">
+     </div>
     <!-- container movies -->
     <h2 class="title-section" v-if="movies.length > 0">Movies</h2>
       <div v-dragscroll class="container">
@@ -46,27 +50,26 @@
           <div class="card-inner">
            <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="cover">
          <div class="info">
-          <h3 class="title">Titolo: {{ movie.title }}</h3>
-          <h4>Titolo Originale: {{ movie.original_title }}</h4>
-          <span class="language">Lingua Originale
-          <img :src="'flags/' + movie.original_language + '.png'">
-          </span>
-          <span class="rating"> Rated:
+           <h3 class="title">Titolo: {{ movie.title }}</h3>
+           <h4>Titolo Originale: {{ movie.original_title }}</h4>
+           <span class="language">Lingua Originale
+           <img :src="'flags/' + movie.original_language + '.png'">
+           </span>
+           <span class="rating"> Rated:
              <i v-for="index in movie.vote_average" class="star fas fa-star"></i>
              <i v-for="index in (5 - movie.vote_average)" class="star far fa-star"></i>
-          </span>
-          <div class="release-date">
-            <span>Release: {{ movie.release_date }}</span>
+           </span>
+           <div class="release-date">
+             <span>Release: {{ movie.release_date }}</span>
+           </div>
+           <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
+           <div class="overview" >
+            <p>{{ movie.overview }}</p>
+           </div>
           </div>
-          <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
-          <div class="overview">
-              <p>{{ movie.overview }}</p>
-          </div>
-        </div>
-
-        </div>
+         </div>
+       </div>
       </div>
-     </div>
     <!-- /container movies -->
     <!-- container series -->
     <h2 class="title-section" v-if="series.length > 0">Tv Series</h2>
@@ -74,27 +77,27 @@
         <div class="card" v-for="serie in series" v-if="serie.poster_path !== null">
           <div class="card-inner">
            <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="" class="cover">
-        <div class="info">
-          <h3 class="title">Titolo: {{ serie.name }}</h3>
-          <h4>Titolo Originale: {{ serie.original_name }}</h4>
-          <span class="language">Lingua Originale:
-          <img :src="'flags/' + serie.original_language + '.png'">
-          </span>
-          <span class="rating"> voto:
+          <div class="info">
+           <h3 class="title">Titolo: {{ serie.name }}</h3>
+           <h4>Titolo Originale: {{ serie.original_name }}</h4>
+           <span class="language">Lingua Originale:
+           <img :src="'flags/' + serie.original_language + '.png'">
+           </span>
+           <span class="rating"> voto:
              <i v-for="index in serie.vote_average" class="star fas fa-star"></i>
              <i v-for="index in (5 - serie.vote_average)" class="star far fa-star"></i>
-          </span>
-          <div class="release-date">
-            <span>First Air Date: {{ serie.first_air_date }}</span>
-          </div>
-          <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
-          <div class="overview">
+           </span>
+           <div class="release-date">
+             <span>First Air Date: {{ serie.first_air_date }}</span>
+           </div>
+           <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
+           <div class="overview">
               <p>{{ serie.overview }}</p>
-          </div>
+           </div>
+         </div>
         </div>
        </div>
       </div>
-     </div>
     <!-- /container series -->
    </main>
 
