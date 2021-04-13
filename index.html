@@ -27,78 +27,122 @@
   <body>
 
    <div id="root">
-      <!-- header section -->
+      <!-- Header section -->
     <header>
+      <!-- Logo -->
       <div class="title-app">
         <img src="img/boolflix-lg.png" alt="Logo">
       </div>
+     <!-- /Logo -->
+     <!-- Search Section -->
       <div class="search-films">
         <input class="input-search" type="text" placeholder="search movie or tv-series..." value="" v-model="search" @keydown.13="searchFromApi">
         <button class="btn" type="button" name="button" @click="searchFromApi">Search</button>
       </div>
+    <!-- /Search Section -->
    </header>
-    <!-- header section -->
+    <!-- /Header section -->
    <main>
+     <!-- Starter Main -->
      <div class="start" v-if="movies.length == 0 && series.length == 0">
        <h1 class="title-base">Benvenuto su Boolflix, inizia cercando Film o SerieTv</h1>
        <img  src="img/netflix-background.jpg" alt="">
      </div>
-    <!-- container movies -->
+    <!-- /Starter Main -->
+    <!-- Container movies -->
     <h2 class="title-section" v-if="movies.length > 0">Movies</h2>
       <div v-dragscroll class="container">
+        <!-- Movie Card -->
         <div class="card" v-for="movie in movies" v-if="movie.poster_path !== null">
           <div class="card-inner">
-           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="" class="cover">
-         <div class="info">
-           <h3 class="title">Titolo: {{ movie.title }}</h3>
-           <h4>Titolo Originale: {{ movie.original_title }}</h4>
-           <span class="language">Lingua Originale
-           <img :src="'flags/' + movie.original_language + '.png'">
-           </span>
-           <span class="rating"> Rated:
+            <!-- Img Cover -->
+           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="Movie img" class="cover">
+            <!-- /Img Cover -->
+            <!-- Info Movie -->
+           <div class="info">
+             <h3 class="title">Titolo: {{ movie.title }}</h3>
+             <h4>Titolo Originale: {{ movie.original_title }}</h4>
+            <!-- Movie Original Language -->
+            <div class="language">
+              <span>Lingua Originale
+                <img :src="'flags/' + movie.original_language + '.png'">
+              </span>
+             </div>
+            <!-- /Movie Original Language -->
+            <!-- Movie Rating -->
+           <div class="rating">
+            <span>Rated:
              <i v-for="index in movie.vote_average" class="star fas fa-star"></i>
              <i v-for="index in (5 - movie.vote_average)" class="star far fa-star"></i>
-           </span>
+            </span>
+           </div>
+           <!-- /Movie Rating -->
+           <!-- Realease Date -->
            <div class="release-date">
              <span>Release: {{ movie.release_date }}</span>
            </div>
+           <!-- /Realease Date -->
+           <!-- Overview -->
            <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
            <div class="overview" >
             <p>{{ movie.overview }}</p>
            </div>
+           <!-- /Overview -->
           </div>
+       <!-- /Info Movie -->
          </div>
        </div>
+      <!-- /Movie Card -->
       </div>
-    <!-- /container movies -->
-    <!-- container series -->
+    <!-- /Container movies -->
+    <!-- Container series -->
     <h2 class="title-section" v-if="series.length > 0">Tv Series</h2>
       <div v-dragscroll class="container">
+       <!-- Series Card -->
         <div class="card" v-for="serie in series" v-if="serie.poster_path !== null">
+         <!-- Card Inner -->
           <div class="card-inner">
-           <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="" class="cover">
+          <!-- Img Cover -->
+           <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="Serie img" class="cover">
+          <!-- /Img Cover -->
+          <!-- Info Series -->
           <div class="info">
            <h3 class="title">Titolo: {{ serie.name }}</h3>
            <h4>Titolo Originale: {{ serie.original_name }}</h4>
-           <span class="language">Lingua Originale:
-           <img :src="'flags/' + serie.original_language + '.png'">
-           </span>
-           <span class="rating"> voto:
-             <i v-for="index in serie.vote_average" class="star fas fa-star"></i>
-             <i v-for="index in (5 - serie.vote_average)" class="star far fa-star"></i>
-           </span>
-           <div class="release-date">
-             <span>First Air Date: {{ serie.first_air_date }}</span>
+           <!-- Series Original Language -->
+           <div class="language">
+             <span>Lingua Originale:
+             <img :src="'flags/' + serie.original_language + '.png'">
+             </span>
            </div>
+           <!-- /Series Original Language -->
+           <!-- Series Rating -->
+           <div class="">
+             <span class="rating"> voto:
+               <i v-for="index in serie.vote_average" class="star fas fa-star"></i>
+               <i v-for="index in (5 - serie.vote_average)" class="star far fa-star"></i>
+             </span>
+           </div>
+           <!-- /Series Rating -->
+           <!-- Release Date -->
+           <div class="release-date">
+            <span>First Air Date: {{ serie.first_air_date }}</span>
+           </div>
+           <!-- /Release Date -->
+           <!-- Overview -->
            <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
            <div class="overview">
-              <p>{{ serie.overview }}</p>
+            <p>{{ serie.overview }}</p>
            </div>
+           <!-- /Overview -->
          </div>
+      <!-- /Info Serie -->
         </div>
+      <!-- /Card Inner -->
        </div>
+     <!-- /Series Card -->
       </div>
-    <!-- /container series -->
+    <!-- /Container series -->
    </main>
 
   </div>
