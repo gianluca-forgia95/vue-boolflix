@@ -7,12 +7,17 @@ el: '#root',
    // Proprietà Utili
    movies: [],
    series: [],
-   mostRated: [],
+   mostRatedMovies: [],
+   mostRatedTvSeries: [],
    search: "",
    apiKey: 'febf9a4fc7b46ba8b5e4681cf81209ce',
    urlSearch: 'https://api.themoviedb.org/3/search/',
 
     },
+
+
+
+
 
    methods: {
     // Funzione per Cercare i Film/Serie dall'API
@@ -31,7 +36,13 @@ el: '#root',
          for ( var i = 0; i < this.movies.length; i++ ) {
            // Voto 1/5
             this.movies[i].vote_average = Math.ceil(this.movies[i].vote_average / 2);
+            if (this.movies[i].vote_average > 4 ) {
+              this.mostRatedMovies.push(this.movies[i]);
+              console.log(this.mostRatedMovies);
+
+            }
          }
+
        });
        //Chiamata per le SerieTV
        axios.get( this.urlSearch + 'tv' , {
@@ -47,10 +58,16 @@ el: '#root',
          for ( var i = 0; i < this.series.length; i++ ) {
            // Voto 1/5
             this.series[i].vote_average = Math.ceil(this.series[i].vote_average / 2);
+            if (this.series[i].vote_average > 4 ) {
+              this.mostRatedTvSeries.push(this.series[i]);
+              console.log(this.mostRatedTvSeries);
+
+            }
          }
        });
 
      },
+
 
    }
 

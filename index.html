@@ -143,6 +143,103 @@
      <!-- /Series Card -->
       </div>
     <!-- /Container series -->
+
+    <!-- Container movies Popular -->
+    <h2 class="title-section" v-if="mostRatedMovies.length > 0">Most Rated Movies</h2>
+      <div v-dragscroll class="container">
+        <!-- Movie Card -->
+        <div class="card" v-for="movie in mostRatedMovies" v-if="movie.poster_path !== null">
+          <div class="card-inner">
+            <!-- Img Cover -->
+           <img :src="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="Movie img" class="cover">
+            <!-- /Img Cover -->
+            <!-- Info Movie -->
+           <div class="info">
+             <h3 class="title">Titolo: {{ movie.title }}</h3>
+             <h4>Titolo Originale: {{ movie.original_title }}</h4>
+            <!-- Movie Original Language -->
+            <div class="language">
+              <span>Lingua Originale
+                <img :src="'flags/' + movie.original_language + '.png'">
+              </span>
+             </div>
+            <!-- /Movie Original Language -->
+            <!-- Movie Rating -->
+           <div class="rating">
+            <span>Rated:
+             <i v-for="index in movie.vote_average" class="star fas fa-star"></i>
+             <i v-for="index in (5 - movie.vote_average)" class="star far fa-star"></i>
+            </span>
+           </div>
+           <!-- /Movie Rating -->
+           <!-- Realease Date -->
+           <div class="release-date">
+             <span>Release: {{ movie.release_date }}</span>
+           </div>
+           <!-- /Realease Date -->
+           <!-- Overview -->
+           <h4 class="title-prev" v-if="movie.overview.length > 0">Overview</h4>
+           <div class="overview" >
+            <p>{{ movie.overview }}</p>
+           </div>
+           <!-- /Overview -->
+          </div>
+       <!-- /Info Movie -->
+         </div>
+       </div>
+      <!-- /Movie Card -->
+      </div>
+    <!-- /Container movies Popular-->
+
+    <!-- Container series Popular -->
+    <h2 class="title-section" v-if="mostRatedTvSeries.length > 0">Most Rated Tv Series</h2>
+      <div v-dragscroll class="container">
+       <!-- Series Card -->
+        <div class="card" v-for="serie in mostRatedTvSeries" v-if="serie.poster_path !== null">
+         <!-- Card Inner -->
+          <div class="card-inner">
+          <!-- Img Cover -->
+           <img :src="'https://image.tmdb.org/t/p/w300' + serie.poster_path" alt="Serie img" class="cover">
+          <!-- /Img Cover -->
+          <!-- Info Series -->
+          <div class="info">
+           <h3 class="title">Titolo: {{ serie.name }}</h3>
+           <h4>Titolo Originale: {{ serie.original_name }}</h4>
+           <!-- Series Original Language -->
+           <div class="language">
+             <span>Lingua Originale:
+             <img :src="'flags/' + serie.original_language + '.png'">
+             </span>
+           </div>
+           <!-- /Series Original Language -->
+           <!-- Series Rating -->
+           <div class="">
+             <span class="rating"> voto:
+               <i v-for="index in serie.vote_average" class="star fas fa-star"></i>
+               <i v-for="index in (5 - serie.vote_average)" class="star far fa-star"></i>
+             </span>
+           </div>
+           <!-- /Series Rating -->
+           <!-- Release Date -->
+           <div class="release-date">
+            <span>First Air Date: {{ serie.first_air_date }}</span>
+           </div>
+           <!-- /Release Date -->
+           <!-- Overview -->
+           <h4 class="title-prev" v-if="serie.overview.length > 0">Overview</h4>
+           <div class="overview">
+            <p>{{ serie.overview }}</p>
+           </div>
+           <!-- /Overview -->
+         </div>
+      <!-- /Info Serie -->
+        </div>
+      <!-- /Card Inner -->
+       </div>
+     <!-- /Series Card -->
+      </div>
+    <!-- /Container series Popular-->
+
    </main>
 
   </div>
